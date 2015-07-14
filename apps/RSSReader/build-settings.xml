@@ -11,7 +11,7 @@
 
 --><buildSettings xmlns="http://www.ibm.worklight.com/build-settings">
     <iphone>
-        <minification includes="**" level="simple"/>
+        <minification includes="**" level="none"/>
         <concatenation includes="**"/>
     </iphone>
 </buildSettings>
