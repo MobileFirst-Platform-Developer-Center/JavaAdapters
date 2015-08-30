@@ -15,15 +15,15 @@
 */
 
 var busyIndicator = null;
-var topic = "";
+var tag = "";
 
 function wlCommonInit(){
 	busyIndicator = new WL.BusyIndicator();
 	loadFeeds();
 }
 
-$('#topic').on("change",function(){
-	topic = this.value;
+$('#tag').on("change",function(){
+	tag = this.value;
 	loadFeeds();
 });
 
@@ -36,7 +36,7 @@ function loadFeeds(){
 	 * If your application supports other hybrid environments, see the tutorial for MobileFirst 6.3.
 	 */
 	var resourceRequest = new WLResourceRequest("/adapters/RSSAdapter/", WLResourceRequest.GET);
-	resourceRequest.setQueryParameter("topic", topic);
+	resourceRequest.setQueryParameter("tag", tag);
 	resourceRequest.send().then(
 			loadFeedsSuccess,
 			loadFeedsFailure

@@ -59,7 +59,7 @@ public class RSSAdapterResource {
 
 	public static void init() {
 		client = HttpClients.createDefault();
-		host = new HttpHost("rss.cnn.com");
+		host = new HttpHost("developer.ibm.com");
 	}
 
 	public void execute(HttpUriRequest req, HttpServletResponse resultResponse)
@@ -83,13 +83,13 @@ public class RSSAdapterResource {
 
 	@GET
 	@Produces("application/json")
-	public void get(@Context HttpServletResponse response, @QueryParam("topic") String topic)
+	public void get(@Context HttpServletResponse response, @QueryParam("tag") String tag)
 			throws ClientProtocolException, IOException, IllegalStateException, SAXException {
-		if(topic!=null && !topic.isEmpty()){
-			execute(new HttpGet("/rss/edition_"+ topic+".rss"), response);
+		if(tag!=null && !tag.isEmpty()){
+			execute(new HttpGet("/mobilefirstplatform/tag/"+ tag +"/feed"), response);
 		}
 		else{
-			execute(new HttpGet("/rss/edition.rss"), response);
+			execute(new HttpGet("/mobilefirstplatform/feed"), response);
 		}
 		
 	}
